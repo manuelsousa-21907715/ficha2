@@ -121,16 +121,6 @@ void ex6 (void){
 }
 ```
 
-output:
-	```bash
-	1 && 0 = 0
-	10 && 1 = 1
-	0 && 0 = 0
-	1 || 10 = 1
-	10 || 0 = 1
-	0 || 0 = 0
-	```
-
 7. Indique qual o resultado das seguintes expressões. Assuma que todas as variáveis são inteiras:
 
 - X = 5 && 6; 
@@ -182,22 +172,6 @@ output:
    }
    ```
 
-output:
-   	```bash
-   	5 && 6 = 1
-	5 && 0 = 0
-	5 > 2 = 1
-	5==6 = 0
-	!5 = 0
-	!0 = 1
-	532 || 1 = 1
-	56 || 1 = 1
-	57 || 0 = 1
-	0*3 || 5*0 = 0
-	0 || !0 = 1
-	50 >> 2 = 12
-	100 << 3 = 800
-   	```
 8. Implemente uma função que recebe o número de quilómetros que percorreu e o número de litros de combustível que o automóvel consumiu e retorne o número de litros que este consome em média em 100 quilómetros. Use constantes para representar os vários fatores de conversão.
 
    *Exemplo de uma sessão de uso do programa (à frente do símbolo ‘>’ aparece o input do utilizador):*
