@@ -120,6 +120,7 @@ void ex6 (void){
 	printf("0 || 0 = %d\n", 0 || 0);
 }
 ```
+
 output:
 
 	```
@@ -184,7 +185,7 @@ output:
 
 output:
 
-   ```
+   	```
    	5 && 6 = 1
 	5 && 0 = 0
 	5 > 2 = 1
@@ -198,7 +199,7 @@ output:
 	0 || !0 = 1
 	50 >> 2 = 12
 	100 << 3 = 800
-   ```
+   	```
 8. Implemente uma função que recebe o número de quilómetros que percorreu e o número de litros de combustível que o automóvel consumiu e retorne o número de litros que este consome em média em 100 quilómetros. Use constantes para representar os vários fatores de conversão.
 
    *Exemplo de uma sessão de uso do programa (à frente do símbolo ‘>’ aparece o input do utilizador):*
