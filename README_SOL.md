@@ -294,7 +294,7 @@ void ex6 (void){
     	char alpha = (char) 0xF0;
     	unsigned int clr = 0xBF3F3FF0 ;
     	unsigned char beta;
-    	unsigned char gr = (clr >> 16) & (0 x000000FF);
+    	unsigned char gr = (clr >> 16) & (0x000000FF);
     	beta = alpha >> 4;
     	return 0;
     }
@@ -304,4 +304,22 @@ void ex6 (void){
     - A variável beta é um número negativo ou positivo?
     - Compile o código e verifique se o resultado foi o esperado. Caso não seja, identifique o erro e volte a fazer a primeira alínea.
 
+  *Resolução:*
+  
+   Para calcular o valor de gr podemos converter para binário, ou podemos trabalhar directamente em hexadecimal já que a primeira operação é um *shift right* de 16 bits ou seja 4 dígitos hexadecimais.
+   `clr >> 16 = 0x0000BF3F` 
+  Em binário entram 16 zeros à esquerda (porque o número é sem sinal), e os 16 bits mais à direita perdem-se.
+  Em seguida aplica-se a operação AND bit-a-bit:
+   ```
+       0x0000BF3F
+    &  0x000000FF
+   -----------------
+       0x0000003F
+   ``` 
+   Logo, `gr = 0x0000003F`
 
+   O calculo do `alpha` embora pareça mais simples tem um pormenor importate. `alpha` é do tipo `char` e portanto é um número com sinal (está em notação complemento para 2). Esse número pode ser positivo ou negativo dependendo do bit mais significativo. Se o número mais significativo (mais à esquerda) for `1`, o número é negativo. Se for `0`, o número é positivo. Portanto, neste caso `alpha` contém um número negativo porque `alpha = '1111 0000' b`. Quando um número é negativo, um shift para a direita introduz um `1` à esquerda em vez de `0`. E portanto `alpha >> 4 = '1111 1111' b = 0xFF = -1`.
+   Note que se o número fosse positivo ou sem sinal (`unsigned`) entrariam zeros à esquerda. Note também que uma deslocação para a direita é uma divisão por 2. Se o número é negativo e for dividido por 2, tem de continuar a ser negativo. Se entrassem zeros, o número passaria a positivo e portanto estaria errado.
+   
+   
+   
